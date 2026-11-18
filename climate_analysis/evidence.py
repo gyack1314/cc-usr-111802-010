@@ -18,6 +18,10 @@ CREATE TABLE IF NOT EXISTS observations (
   FOREIGN KEY(document_source,document_id,document_revision)
     REFERENCES documents(source,document_id,revision)
 );
+CREATE TABLE IF NOT EXISTS plans (
+  fingerprint TEXT NOT NULL, known_at TEXT NOT NULL, approved_at TEXT NOT NULL,
+  plan_json TEXT NOT NULL, PRIMARY KEY(fingerprint)
+);
 """
 
 def connect(path):
@@ -64,3 +68,14 @@ def records(db,kind,known_at):
                 'payload':json.loads(payload),'source':{'name':source,'document':doc_id,
                 'revision':doc_revision,'sha256':sha,'received_at':received_at}})
     return [item[1] for item in sorted(latest.values(),key=lambda item:item[1]['id'])]
+
+def save_plan(db,plan,approved_at):
+    """留存一份已批准分配方案及其依据，按指纹可查。"""
+    body=json.dumps(plan,ensure_ascii=False,sort_keys=True)
+    with db:
+        db.execute('INSERT OR IGNORE INTO plans VALUES(?,?,?,?)',(plan['fingerprint'],plan['known_at'],approved_at,body))
+    return plan['fingerprint']
+
+def get_plan(db,fingerprint):
+    row=db.execute('SELECT plan_json FROM plans WHERE fingerprint=?',(fingerprint,)).fetchone()
+    return json.loads(row[0]) if row else None

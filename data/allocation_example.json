@@ -1,0 +1,126 @@
+{
+  "known_at": [
+    "2026-08-01T00:00:00+00:00",
+    "2026-09-01T00:00:00+00:00"
+  ],
+  "documents": [
+    {
+      "source": "观测机构",
+      "document_id": "tws-anomaly",
+      "revision": "r1",
+      "received_at": "2026-07-28T00:00:00+00:00",
+      "records": [
+        {
+          "kind": "observation",
+          "id": "tws-A",
+          "revision": "r1",
+          "valid_from": "2026-08-01",
+          "payload": {
+            "metric": "tws_deficit_ratio",
+            "region": "region-A",
+            "unit": "ratio",
+            "value": 0.45,
+            "baseline": {"start_year": 2004, "end_year": 2009},
+            "coverage": "全域"
+          }
+        },
+        {
+          "kind": "observation",
+          "id": "tws-B",
+          "revision": "r1",
+          "valid_from": "2026-08-01",
+          "payload": {
+            "metric": "tws_deficit_ratio",
+            "region": "region-B",
+            "unit": "ratio",
+            "value": 0.3,
+            "baseline": {"start_year": 2004, "end_year": 2009},
+            "coverage": "全域"
+          }
+        },
+        {
+          "kind": "observation",
+          "id": "tws-C",
+          "revision": "r1",
+          "valid_from": "2026-08-01",
+          "payload": {
+            "metric": "tws_deficit_ratio",
+            "region": "region-C",
+            "unit": "ratio",
+            "value": 0.55,
+            "baseline": {"start_year": 1981, "end_year": 2010},
+            "coverage": "城区"
+          }
+        },
+        {
+          "kind": "observation",
+          "id": "tws-D",
+          "revision": "r1",
+          "valid_from": "2026-08-01",
+          "payload": {
+            "metric": "tws_deficit_ratio",
+            "region": "region-D",
+            "unit": "ratio",
+            "value": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "source": "统计部门",
+      "document_id": "population",
+      "revision": "r1",
+      "received_at": "2026-07-27T00:00:00+00:00",
+      "records": [
+        {"kind": "population", "id": "pop-A", "revision": "r1", "valid_from": "2026-01-01",
+         "payload": {"region": "region-A", "unit": "人", "value": 80000}},
+        {"kind": "population", "id": "pop-B", "revision": "r1", "valid_from": "2026-01-01",
+         "payload": {"region": "region-B", "unit": "人", "value": 300000}},
+        {"kind": "population", "id": "pop-C", "revision": "r1", "valid_from": "2026-01-01",
+         "payload": {"region": "region-C", "unit": "人", "value": 50000}},
+        {"kind": "population", "id": "pop-D", "revision": "r1", "valid_from": "2026-01-01",
+         "payload": {"region": "region-D", "unit": "人", "value": 30000}}
+      ]
+    },
+    {
+      "source": "水利部门",
+      "document_id": "alternative-supply",
+      "revision": "r1",
+      "received_at": "2026-07-26T00:00:00+00:00",
+      "records": [
+        {"kind": "alternative_supply", "id": "alt-B", "revision": "r1", "valid_from": "2026-07-01",
+         "payload": {"region": "region-B", "unit": "m3/day", "value": 500, "description": "既有再生水厂"}}
+      ]
+    },
+    {
+      "source": "后勤部门",
+      "document_id": "fleet",
+      "revision": "r1",
+      "received_at": "2026-07-25T00:00:00+00:00",
+      "records": [
+        {"kind": "fleet", "id": "fleet-main", "revision": "r1", "valid_from": "2026-08-01",
+         "payload": {"trucks": 20, "capacity_per_truck": 100, "unit": "m3/day"}}
+      ]
+    },
+    {
+      "source": "业务部门",
+      "document_id": "planning-parameter",
+      "revision": "r1",
+      "received_at": "2026-07-25T00:00:00+00:00",
+      "records": [
+        {"kind": "parameter", "id": "planning", "revision": "r1", "valid_from": "2026-08-01",
+         "payload": {"per_capita_need": 50, "unit": "L/人/天"}}
+      ]
+    },
+    {
+      "source": "水利部门",
+      "document_id": "alternative-supply-c",
+      "revision": "r1",
+      "received_at": "2026-08-20T00:00:00+00:00",
+      "records": [
+        {"kind": "alternative_supply", "id": "alt-C", "revision": "r1", "valid_from": "2026-08-15",
+         "payload": {"region": "region-C", "unit": "m3/day", "value": 700, "description": "新启用应急水井（补交水源证据）"}}
+      ]
+    }
+  ]
+}
